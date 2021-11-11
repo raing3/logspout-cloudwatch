@@ -3,6 +3,7 @@ package cloudwatch
 import (
 	"log"
 	"os"
+	"strconv"
 	"strings"
 	"time"
 
@@ -100,7 +101,7 @@ func (a *CloudwatchAdapter) Stream(logstream chan *router.Message) {
 			retentionDays := a.renderEnvValue(`LOGSPOUT_CLOUDWATCH_RETENTION_DAYS`, &context, "")
 
 			if (retentionDays != "") {
-				retentionDaysInt, err := strconv.ParseInt(s, 10, 64)
+				retentionDaysInt, err := strconv.ParseInt(retentionDays, 10, 64)
 				if err == nil {
 					a.retentiondays[groupName] = retentionDaysInt
 				} else {
