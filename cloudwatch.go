@@ -57,7 +57,7 @@ func NewCloudwatchAdapter(route *router.Route) (router.LogAdapter, error) {
 		client:        client,
 		groupnames:    map[string]string{},
 		streamnames:   map[string]string{},
-		retentiondays: map[string]int64{}
+		retentiondays: map[string]int64{},
 	}
 	adapter.batcher = NewCloudwatchBatcher(&adapter)
 	return &adapter, nil
