@@ -189,7 +189,7 @@ func (u *CloudwatchUploader) createGroupRetentionPolicy(group string, retentionI
 		LogGroupName: aws.String(group),
 		RetentionInDays: aws.Int64(retentionInDays),
 	}
-	if _, err: u.svc.PutRetentionPolicy(params); err != nil {
+	if _, err := u.svc.PutRetentionPolicy(params); err != nil {
 		return err
 	}
 	return nil
