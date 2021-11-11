@@ -24,7 +24,7 @@ type CloudwatchAdapter struct {
 	Ec2Region   string
 	Ec2Instance string
 
-	client	    *docker.Client
+	client        *docker.Client
 	batcher       *CloudwatchBatcher // batches up messages by log group and stream
 	groupnames    map[string]string  // maps container names to log groups
 	streamnames   map[string]string  // maps container names to log streams
