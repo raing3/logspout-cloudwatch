@@ -127,7 +127,7 @@ func (u *CloudwatchUploader) getSequenceToken(msg CloudwatchMessage) (*string,
 		}
 
 		if retentionDays, retentionDaysConfigured := u.adapter.retentiondays[group]; retentionDaysConfigured {
-			err = u.createGroupRetentionPolicy(group)
+			err = u.createGroupRetentionPolicy(group, retentionDays)
 			if err != nil {
 				return nil, err
 			}
